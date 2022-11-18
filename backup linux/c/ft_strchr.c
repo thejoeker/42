@@ -1,27 +1,30 @@
-#include <stddef.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 08:01:15 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 12:49:26 by julrober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	return ((char *)s);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "hello$what";
-	
-	int c = '$';
-
-	char *ptr = ft_strchr(str, c);
-
-	printf("%s", ptr);
-}
-
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
+}	
+//recherche la premiere occurence et retourne un pointeur si il la trouve
+// retourne NULL si il ne trouve pas

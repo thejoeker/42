@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 09:33:31 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/09 07:56:00 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/08 10:03:01 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 12:45:56 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	char c = 'a';
-	printf("%c\n", c);
-
-	printf("%d", ft_isdigit(c));
-
-}*/
+// copie une string dans une dest jusqu'au '\0'

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 09:33:31 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/09 07:56:00 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/09 10:47:49 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/17 17:10:46 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_isdigit(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	if (s != NULL)
+		write(fd, s, ft_strlen(s));
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	char c = 'a';
-	printf("%c\n", c);
-
-	printf("%d", ft_isdigit(c));
-
-}*/

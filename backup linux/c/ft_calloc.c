@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 09:33:31 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/09 07:56:00 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/09 11:16:46 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 13:20:13 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	void	*result;
+
+	result = malloc (count * size);
+	if (!result)
+		return (0);
+	ft_bzero(result, count * size);
+	return (result);
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	char c = 'a';
-	printf("%c\n", c);
-
-	printf("%d", ft_isdigit(c));
-
-}*/
+// aloue de la memoire et l'initialise a 0

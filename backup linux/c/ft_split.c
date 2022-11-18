@@ -1,7 +1,16 @@
-#include <stddef.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/17 17:22:55 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/17 17:22:59 by julrober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static size_t	ft_word_count(char const *s, char c)
 {
@@ -88,17 +97,3 @@ char	**ft_split(char const *s, char c)
 	pt_split[len] = NULL;
 	return (pt_split);
 }
-
-#include <stdio.h>
-
-int main()
-{
-	const char str[] = "topic";
-	const char str1[] = "easy";
-
-	char *isou = ft_strtrim(str, str1);
-	printf("%s", isou);
-
-	
-}
-

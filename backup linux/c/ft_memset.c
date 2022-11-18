@@ -1,18 +1,26 @@
-void *ft_memset(char *str, char c, int len)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 09:53:52 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 11:28:04 by julrober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
+
+void	*ft_memset(void *ptr, int c, size_t len)
 {
-	int i = 0;
-	while(i < len)
+	char	*s;
+
+	s = ptr;
+	while (len-- > 0)
 	{
-		*str + i = c;
-		i++;
+		*s = c;
+		s++;
 	}
-	return(str);
+	return (ptr);
 }
-
-#include <stdio.h>
-
-int main()
-{
-	char str[]= "aaaaaaaaaaaaa";
-	printf("%p", ft_memset(str, 'b', 4));
-}
+//rempli n bytes d'une valeur x d'un pointeur. 

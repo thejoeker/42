@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 09:33:31 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/09 07:56:00 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/09 08:02:04 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 12:53:37 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
+	unsigned char	us1;
+	unsigned char	us2;
+
+	while (n-- > 0)
+	{
+		us1 = *(unsigned char *)s1++;
+		us2 = *(unsigned char *)s2++;
+		if (us1 != us2)
+			return (us1 - us2);
+		if (us1 == '\0')
+			return (0);
+	}
 	return (0);
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	char c = 'a';
-	printf("%c\n", c);
-
-	printf("%d", ft_isdigit(c));
-
-}*/
+// compare 2 string sur n charactere, si egal = 0
+// si, s1 > s2 = positif et s1 < s2 = negatif 

@@ -1,23 +1,38 @@
-#include <stddef.h>
-#include <string.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/17 17:27:18 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 07:08:26 by julrober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr_pt;
+	size_t	i;
+	char	*sub;
 
 	if (!s)
 		return (NULL);
-	if (strlen(s) < start)
-		return (strdup(""));
-	substr_pt = malloc((len + 1) * sizeof(char));
-	if (!substr_pt)
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	sub = malloc(sizeof(char) * (len + 1));
+	if (!sub)
 		return (NULL);
-	memcpy(substr_pt, start + s, len);
-	substr_pt[len] = '\0';
-	return (substr_pt);
+	i = -1;
+	while (++i < len)
+		sub[i] = s[start + i];
+	sub[i] = '\0';
+	return (sub);
 }
-
+/*
 #include <stdio.h>
 
 int main()
@@ -26,5 +41,4 @@ int main()
 	int s = 66;
 	char *ptr = ft_substr(str, s, 10); 
 	printf("%s", ptr);
-}
-
+}*/

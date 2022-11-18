@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 09:33:31 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/09 07:56:00 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/08 08:41:47 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 13:17:53 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_atoi(const char *nptr)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	num;
+	int	sign;
+
+	num = 0;
+	sign = 1;
+	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr++ == '-')
+			sign = -1;
+	}
+	while (ft_isdigit(*nptr))
+	{
+		num = (*nptr - '0') + (num * 10);
+		nptr++;
+	}
+	return (num * sign);
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	char c = 'a';
-	printf("%c\n", c);
-
-	printf("%d", ft_isdigit(c));
-
-}*/
+// converti une string en int

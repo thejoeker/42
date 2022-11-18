@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 17:25:17 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/17 18:10:17 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/09 08:03:08 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 13:15:33 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	unsigned int	i;
+	unsigned int	j;
 
-	if (s == NULL || f == NULL)
-		return ;
 	i = 0;
-	while (s[i])
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] && i < (unsigned int)len)
 	{
-		f(i, s + i);
+		j = 0;
+		while (haystack[i + j] == needle[j] && haystack[i + j]
+			&& (i + j) < (unsigned int)len)
+			j++;
+		if (!needle[j])
+			return ((char *)&haystack[i]);
 		i++;
 	}
+	return (NULL);
 }
+// recherche une strings occurence dans une big string sur n cara...

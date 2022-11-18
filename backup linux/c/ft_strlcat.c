@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 17:25:17 by julrober          #+#    #+#             */
-/*   Updated: 2022/11/17 18:10:17 by julrober         ###   ########.fr       */
+/*   Created: 2022/11/09 08:00:28 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/18 12:46:59 by julrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	i;
+	unsigned int	j;
+	unsigned int	l;
 
-	if (s == NULL || f == NULL)
-		return ;
+	j = 0;
+	l = 0;
+	while (dst[j] && j < (unsigned int)size)
+		j++;
+	while (src[l])
+		l++;
+	if (size == 0)
+		return (ft_strlen((char *)src));
 	i = 0;
-	while (s[i])
+	if (size - j == 0)
+		return (j + ft_strlen((char *)src));
+	while (src[i] && i < ((unsigned int)size - j - 1))
 	{
-		f(i, s + i);
-		i++;
+		dst[i + j] = src[i];
+		++i;
 	}
+	dst[i + j] = '\0';
+	return (j + l);
 }
+// concatene une string dans une destination 

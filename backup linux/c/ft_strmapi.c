@@ -1,7 +1,16 @@
-#include <stddef.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julrober <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/17 17:26:37 by julrober          #+#    #+#             */
+/*   Updated: 2022/11/17 17:26:39 by julrober         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -24,18 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	p_funcarg[len] = '\0';
 	return (p_funcarg);
 }
-
-
-#include <stdio.h>
-
-int main()
-{
-	char s[] = "topicalismo";
-	
-	char d =ft_putstr(s,test.c)
-
-	printf("%d", d);
-
-	
-}
-
